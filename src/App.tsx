@@ -3,7 +3,7 @@ import cls from './App.module.css';
 import ProfileContainer from './component/profile/profile';
 import Header from './component/header/header';
 import NavBar from './component/navBar/navBar';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 import Login from './component/login/login';
 import Users from './component/users/users';
 import Chat from './component/chat/chat'
@@ -23,7 +23,7 @@ const App: React.FC = () => {
     <Loader/>
   }
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <div className={cls.app}>
         <Header/>
         <div className={cls.container}>
@@ -35,7 +35,7 @@ const App: React.FC = () => {
           <Route path='/Chat' render={() => <Chat/>}/>
         </div>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
