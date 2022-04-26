@@ -34,7 +34,7 @@ const ProfileDataText: React.FC<propsType> = ({profile, setEditMode, showContact
                     {profileContactValues}
                 </ul>
             </div>
-            {isOwner ? <button onClick={() => setEditMode(true)}>EditText</button> : false}
+            {isOwner ? <button onClick={() => setEditMode(true)}>EditTextEDIT</button> : false}
             {/* Здесь важно писать сет эдит мод внутри коллбека */}
         </div>
     )

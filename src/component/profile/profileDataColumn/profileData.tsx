@@ -23,7 +23,7 @@ const ProfileData: React.FC<propsType> = ({profile, isOwner}) => {
             <div className={styles.profile__name}>
                 {profile.fullName
                     ? <span>{profile.fullName}</span>
-                    : <span>Name</span>
+                    : <span>NameSSS</span>
                 }
             </div>
             <ProfileStatus isOwner={isOwner} userId={profile.userId}/>
