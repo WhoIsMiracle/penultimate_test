@@ -1,0 +1,13 @@
+.profile__name{
+    font-size: 1.5em;
+}
+.profile__dataWrap{
+    width: 60%;
+    margin: 0px 0px 0px 0px;
+}
+.profile__data{
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 5px 15px 10px 15px;
+}
+

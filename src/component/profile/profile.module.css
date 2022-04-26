@@ -1,0 +1,13 @@
+.profile{
+    width: 100%;
+    background: rgb(227, 239, 241);
+    padding: 10px 0px;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 3px 0px 4px black;
+}
+.profile input{
+    font-size: 1em;
+}
+
+

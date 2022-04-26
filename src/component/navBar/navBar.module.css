@@ -1,0 +1,15 @@
+.navBar{
+    width: 20%;
+    background: rgb(0, 0, 0);
+    font-size: 1.55em;
+    box-shadow: -3px -4px 4px black;
+}
+.navBar a{
+    text-decoration: none;
+    color: rgb(251, 249, 249);
+    /* text-shadow: 0px 3px 3px rgb(30, 28, 24); */
+}
+.navBar__list li{
+    border-radius: 10px;
+    transition: 1s;
+}

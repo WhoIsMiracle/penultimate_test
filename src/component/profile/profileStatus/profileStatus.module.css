@@ -1,0 +1,14 @@
+.status__input input{
+    width: 300px;
+    border-radius: 15px;
+    padding: 5px;
+    font-style: italic;
+    margin: 5px 0px 10px 0px;
+}
+.status__text{
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    margin: 5px 0px 10px 0px;
+    font-style: italic;
+}

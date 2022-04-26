@@ -1,0 +1,26 @@
+.header{
+    background: rgb(5, 1, 8);
+    color: rgb(254, 248, 236);
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    text-shadow: -2px 3px 3px white;
+    display: flex;
+    justify-content: space-between;
+}
+.header img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    padding: 0px 0px 0px 15px;
+}
+.login{
+    display: flex;
+    align-items: center;
+    font-size: 1.4em;
+    padding: 0px 40px 0px 0px;
+}
+.login button{
+    margin: 0px 0px 0px 50px;
+    padding: 0px 15px;
+    height: 33px;
+}
