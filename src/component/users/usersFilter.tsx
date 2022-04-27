@@ -16,8 +16,7 @@ const UsersFilter: React.FC<usersFilterProps> = ({filter, currentPage, pageSize,
         <Formik enableReinitialize={true}
                 initialValues={{term: filter.term, friend: filter.friend === null ? 'null' : filter.friend}}
                 onSubmit={(filter, { setSubmitting }) => {
-                    if(filter.friend === 'true') currentPage=1
-                    dispatch(getUsersTC(currentPage, pageSize, filter))
+                    dispatch(getUsersTC(1, pageSize, filter))
                     setSubmitting(false)
                     }
                 }>

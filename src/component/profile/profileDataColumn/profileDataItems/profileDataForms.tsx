@@ -2,8 +2,9 @@ import React from "react";
 import cls from './profileData.module.css';
 import { Formik, Field, Form } from "formik";
 import { updateProfileDataTC } from "../../../../redux/profile-reducer"; 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { profileType } from "../../../../types/types";
+import { getAuthIdSelector } from "../../../../redux/selectors";
 
 type propsType = {
     profile: profileType
@@ -13,6 +14,7 @@ type propsType = {
 }
 
 const ProfileDataForms: React.FC<propsType> = ({profile, setEditMode, showContacts, setShowContacts}) => {
+    let authId = useSelector(getAuthIdSelector) as number
     let dispatch = useDispatch()
     let profileContactForms = Object.keys(profile.contacts).map(value => {
         return <div className={cls.contacts__forms} key={'contact' + value}>
@@ -27,7 +29,7 @@ const ProfileDataForms: React.FC<propsType> = ({profile, setEditMode, showContac
     })
     return <div className={cls.data__forms}>
             <Formik initialValues={profile} onSubmit={(data: profileType) => {
-                dispatch(updateProfileDataTC(data, 19901))
+                dispatch(updateProfileDataTC(data, authId))
                 setEditMode(false)}}>
                 {({ isSubmitting }) => (
                     <Form>

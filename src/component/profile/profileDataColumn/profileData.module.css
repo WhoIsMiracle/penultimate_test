@@ -1,5 +1,6 @@
 .profile__name{
     font-size: 1.5em;
+    word-break: break-all;
 }
 .profile__dataWrap{
     width: 60%;

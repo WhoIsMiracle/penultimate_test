@@ -11,9 +11,16 @@ type propsType = {
 }
 
 const ProfileDataText: React.FC<propsType> = ({profile, setEditMode, showContacts, isOwner, setShowContacts}) => {
-    let profileContactKeys = Object.keys(profile.contacts).map(key => <li key={'key' + key}><b>{key}:</b></li>)
-    let profileContactValues = Object.values(profile.contacts).map((value, index) => {
-        return <li key={value + index}>{value}</li>})
+    let profileContactKeys = Object.keys(profile.contacts)
+    let finalContactsMap = []
+    for(let i=0; i <= profileContactKeys.length; i++){
+        finalContactsMap.push(
+            <div className={cls.contact__container}>
+                <div className={cls.contact__key}>{Object.keys(profile.contacts)[i]}</div>
+                <div className={cls.contact__value}>{Object.values(profile.contacts)[i]}</div>
+            </div>
+        )
+    }
     return(
         <div className={cls.data__text}>
             <div className={cls.data__description}>
@@ -27,15 +34,10 @@ const ProfileDataText: React.FC<propsType> = ({profile, setEditMode, showContact
                 {showContacts ? <span>Hide contacts</span> : <span>Show contacts</span>}
             </div>
             <div className={showContacts ? cls.data__contacts : cls.hidden__contacts}>
-                <ul className={cls.contacts__keys}>
-                    {profileContactKeys}
-                </ul>
-                <ul className={cls.contacts__values}>
-                    {profileContactValues}
-                </ul>
+                {finalContactsMap.map(item => item)}
             </div>
-            {isOwner ? <button onClick={() => setEditMode(true)}>EditTextEDIT</button> : false}
-            {/* Здесь важно писать сет эдит мод внутри коллбека */}
+            {isOwner ? <button onClick={() => setEditMode(true)}>EditText</button> : false}
+            {/* Здесь важно писать setEditMode мод внутри коллбека */}
         </div>
     )
 }

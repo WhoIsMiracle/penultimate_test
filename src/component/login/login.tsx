@@ -11,11 +11,18 @@ const maxLength25 = maxLengthVC(25)
 const LoginForms: React.FC<InjectedFormProps<dataLogin>> = ({handleSubmit, ...props}) => {
     return (
         <form className={cls.login__forms} onSubmit={handleSubmit}>
-            <Field name='login' component={Input} type='text' placeholder='Enter your login'
-            validate={[maxLength25]}/>
-            <Field name='password' component={Input} type='text' placeholder='Enter your password'
-            validate={[maxLength25]}/>
-            <Field id='checkbox__login' name='rememberMe' component={Input} type='checkbox'/>
+            <div className={cls.login__inputs}>
+                <Field name='login' component={Input} type='text' placeholder='Enter your login'
+                validate={[maxLength25]}/>
+                <Field name='password' component={Input} type='text' placeholder='Enter your password'
+                validate={[maxLength25]}/>
+            </div>
+            <div className={cls.login__checkbox}>
+                <div className={cls.checkbox__wrap}>
+                    <Field id='checkbox__login' name='rememberMe' component={Input} type='checkbox'/>
+                </div>
+                <div className={cls.checkbox__text}>Remember Me</div>
+            </div>
             <button>Send</button>
         </form>
     )
@@ -38,7 +45,7 @@ const Login: React.FC = () => {
         <div className={cls.login}>
             <div className={cls.login__body}>
                 <span>
-                    Please log in
+                    Sign in
                 </span>
                 {/* @ts-ignore */}
                 <LoginFormsWrapped onSubmit={LogIn}/>

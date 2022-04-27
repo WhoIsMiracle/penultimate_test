@@ -3,7 +3,7 @@ import styles from './profile.module.css';
 import { ComponentWithAuthRedirectHoc } from "../../general/hocs";
 import { getProfileTC} from '../../redux/profile-reducer';
 import { useDispatch, useSelector } from "react-redux";
-import { getProfileSelector } from "../../redux/selectors";
+import { getAuthIdSelector, getProfileSelector } from "../../redux/selectors";
 import Loader from "../../general/loader/loader";
 import { useHistory } from "react-router-dom";
 import * as queryString from 'querystring';
@@ -16,14 +16,15 @@ const Profile: React.FC = () => {
     let dispatch = useDispatch()
     let profile = useSelector(getProfileSelector)
     let history = useHistory()
-    
+    let authId = useSelector(getAuthIdSelector)
     useEffect(() => {
         let urlParsed: any = queryString.parse(history.location.search.substr(1))
         if(!urlParsed.id){
-            urlParsed.id = 19901
+            urlParsed.id = authId
         }
+        Number(urlParsed.id) === authId ? setIsOwner(true) : setIsOwner(false)
         console.log(urlParsed.id)
-        urlParsed.id === '19901' ? setIsOwner(true) : setIsOwner(false)
+        console.log(authId)
         dispatch(getProfileTC(urlParsed.id))
     }, [history.location.search])
 

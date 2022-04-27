@@ -25,6 +25,7 @@ const Users: React.FC = ({...props}) => {
     }
     useEffect(() => {
         let parsedURL = queryString.parse(history.location.search.substr(1))
+        console.log(parsedURL)
         let actualPage = currentPage
         let actualFilter = filter
         if (parsedURL.page) actualPage = Number(parsedURL.page)

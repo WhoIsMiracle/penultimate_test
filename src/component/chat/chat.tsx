@@ -62,7 +62,7 @@ const Message: React.FC<{message: messagesType}> = ({message}) => {
             <div>
                 {message.userName}
             </div>
-            <div>
+            <div className={styles.messages__message}>
                 {message.message}
             </div>
         </div>

@@ -14,7 +14,28 @@
     padding: 0px 15px;
     height: 33px;
 }
-/* #checkbox__login{
+.login__inputs input{
+    height: 30px;
+    width: 200px;
+    padding: 0px 0px 0px 9px;
+    margin: 10px 0px 0px 0px;
+    border-radius: 30px;
+    font-size: 1em;
+}
+
+.login__checkbox{
+    margin: 10px 0px 10px 0px;
+    display: flex;
+    align-items: center;
+}
+.login__checkbox input{
+    display: flex;
     height: 20px;
     width: 20px;
-} */
+    margin: 0px 15px 0px 0px;
+}
+.checkbox__wrap div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

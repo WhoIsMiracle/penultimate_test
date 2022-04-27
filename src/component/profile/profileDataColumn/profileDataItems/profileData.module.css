@@ -1,23 +1,7 @@
 .data__text{
     margin: 0px 0px 0px 0px;
 }
-.data__contacts{
-    display: flex;
-}
-.data__contacts ul{
-    line-height: 170%;
-    list-style-type: none;
-}
-.contacts__keys{
-    margin: 0px;
-    padding: 0px;
-    width: 157px;
-}
-.contacts__values{
-    padding: 0px;
-    margin: 0px 0px 0px 0px;
-    color: rgb(0, 0, 0);
-}
+
 .data__forms{
     margin: 0px 0px 0px 0px;
     line-height: 170%;
@@ -66,9 +50,14 @@
     transition: 0.8s;
     font-size: 1.1em;
 }
-/* .contact__formsShow{
-    font-size: 1em;
-} */
 .contact__formsHidden{
     display: none;
+}
+.contact__container{
+    display: flex;
+    min-height: 30px;
+}
+.contact__key{
+    min-width: 157px;
+    font-weight: 600;
 }

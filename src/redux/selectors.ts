@@ -40,3 +40,6 @@ export const getIsFollowedSelector = (state: appType) => {
 export const getAppReadySelector = (state: appType) => {
     return state.app.appReady
 }
+export const getAuthIdSelector = (state: appType) => {
+    return state.auth.id
+}

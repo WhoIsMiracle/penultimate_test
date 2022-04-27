@@ -23,7 +23,6 @@ const App: React.FC = () => {
     <Loader/>
   }
   return (
-    <HashRouter basename={process.env.PUBLIC_URL}>
       <div className={cls.app}>
         <Header/>
         <div className={cls.container}>
@@ -35,11 +34,18 @@ const App: React.FC = () => {
           <Route path='/Chat' render={() => <Chat/>}/>
         </div>
       </div>
-    </HashRouter>
   );
 }
 
-export default App;
+const AppContainer = () => {
+  return (
+  <HashRouter basename={process.env.PUBLIC_URL}>
+    <App/>
+  </HashRouter>
+  )
+}
+
+export default AppContainer;
 
 
 // https://github.com/WhoIsMiracle/penultimate.git
