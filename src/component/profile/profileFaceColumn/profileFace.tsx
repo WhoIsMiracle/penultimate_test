@@ -7,6 +7,7 @@ import styles from './profileFace.module.css'
 import user_main from '../../../user_main.jpg';
 import { followTC, unfollowTC } from "../../../redux/users-reducer";
 import { updatePhotoProfileTC } from "../../../redux/profile-reducer"
+import { NavLink } from "react-router-dom"
 
 type propsType = {
     profile: profileType
@@ -33,11 +34,21 @@ const ProfileFace: React.FC<propsType> = ({profile, isOwner}) => {
             <div className={styles.photo__updateText}>Update photo</div>
         </div>
         : <div className={styles.profile__following}>
-            {isFollowed ? <div className={styles.profile__follow} onClick={() => dispatch(unfollowTC(profile.userId))}>Unfollow</div> 
-            : <div className={styles.profile__follow} onClick={() => dispatch(followTC(profile.userId))}>Follow</div>}
+            {isFollowed ? <div className={styles.profile__follow} onClick={() => {
+                dispatch(unfollowTC(profile.userId))
+            }}>Unfollow</div> 
+            : <div className={styles.profile__follow} onClick={() => dispatch(followTC(profile.userId))}>
+                Follow
+            </div>}
         </div>}
+        {isOwner 
+            ? false
+            : <NavLink to={`/Dialogs?id=${profile.userId}`}>
+                <div className={styles.profile__writeMessage}><span>Write message</span></div>
+            </NavLink>
+        }
         <input className={showButtonUpdate ? styles.photo__inputShow : styles.photo__inputHidden}
-                onChange={savePhoto} type='file'/>
+            onChange={savePhoto} type='file'/>
         <ProfileFriends/>
     </div>
 }

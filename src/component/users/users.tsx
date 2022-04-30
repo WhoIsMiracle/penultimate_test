@@ -10,6 +10,7 @@ import UsersFilter from "./usersFilter";
 import * as queryString from 'querystring';
 import { actions as actionsProfile } from "../../redux/profile-reducer";
 import { ComponentWithAuthRedirectHoc } from "../../general/hocs";
+import { actions as appActions } from "../../redux/app-reducer";
 
 const Users: React.FC = ({...props}) => {
     let currentPage = useSelector(getCurrentPageSelector)
@@ -25,7 +26,6 @@ const Users: React.FC = ({...props}) => {
     }
     useEffect(() => {
         let parsedURL = queryString.parse(history.location.search.substr(1))
-        console.log(parsedURL)
         let actualPage = currentPage
         let actualFilter = filter
         if (parsedURL.page) actualPage = Number(parsedURL.page)
@@ -72,7 +72,7 @@ const Users: React.FC = ({...props}) => {
             />
             {users.map((user, index) => <div key={user.name + index} className={cls.users__itemWrap}>
                 <div className={cls.users__item}>
-                    <div className={cls.user__photo}>
+                    <div onClick={() => dispatch(appActions.setHistory(history.location.search))} className={cls.user__photo}>
                         <NavLink to={`/Profile?id=${user.id}`}>
                             <img onClick={() => dispatch(actionsProfile.setIsFollowed(user.followed ? true : false))} 
                             src={user.photos.small ? user.photos.small : user_small}/>

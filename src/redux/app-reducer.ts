@@ -3,20 +3,23 @@ import { getAuthDataTC } from './auth-reducer'
 import { appInferType } from './store'
 
 let initialState = {
-    appReady: false
+    appReady: false,
+    history: '' as any
 }
 
 const appReducer = (state=initialState, action: actionsType) => {
     switch(action.type){
         case 'app/APP_READY':
             return {...state, appReady: action.ready}
-
+        case 'app/SET_HISTORY':
+            return {...state, history: action.history}
     default: return state
     }
 }
 
-const actions = {
-    setAppReady: (ready: boolean) => ({type: 'app/APP_READY', ready} as const)
+export const actions = {
+    setAppReady: (ready: boolean) => ({type: 'app/APP_READY', ready} as const),
+    setHistory: (history: any) => ({type: 'app/SET_HISTORY', history} as const),
 }
 
 export const appInitialize = () => (dispatch: Dispatch) => {

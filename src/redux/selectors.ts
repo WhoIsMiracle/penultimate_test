@@ -43,3 +43,15 @@ export const getAppReadySelector = (state: appType) => {
 export const getAuthIdSelector = (state: appType) => {
     return state.auth.id
 }
+export const getDialogsMessagesSelector = (state: appType) => {
+    return state.dialogs.messages
+}
+export const getProfileReadySelector = (state: appType) => {
+    return state.profile.profileReady
+}
+export const getAppHistorySelector = (state: appType) => {
+    return state.app.history
+}
+export const getLoadReadySelector = (state: appType) => {
+    return state.dialogs.loadReady
+}

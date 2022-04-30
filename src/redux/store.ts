@@ -6,6 +6,7 @@ import profileReducer from "./profile-reducer";
 import usersReducer from "./users-reducer";
 import chatReducer from "./chat-reducer";
 import appReducer from "./app-reducer";
+import dialogsReducer from "./dialogs-reducer";
 
 
 let reducers = combineReducers({
@@ -14,7 +15,8 @@ let reducers = combineReducers({
     profile: profileReducer,
     users: usersReducer,
     chat: chatReducer,
-    app: appReducer
+    app: appReducer,
+    dialogs: dialogsReducer
 })
 
 

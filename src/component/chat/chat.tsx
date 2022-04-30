@@ -6,7 +6,8 @@ import styles from './chat.module.css'
 import { messagesType } from '../../DAL/chatAPI'
 import user_small from '../../user_small.jpg'
 import { ComponentWithAuthRedirectHoc } from '../../general/hocs'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom'
+import { actions } from '../../redux/app-reducer'
 
 const Chat = () => {
     const dispatch = useDispatch()
@@ -56,8 +57,14 @@ const Messages = () => {
 }
 
 const Message: React.FC<{message: messagesType}> = ({message}) => {
+    let dispatch = useDispatch()
+    let history = useHistory()
+
     return <div className={styles.messages__item}>
-        <NavLink to={`/Profile?id=${message.userId}`}><img src={message.photo ? message.photo : user_small}/></NavLink>
+        <NavLink to={`/Profile?id=${message.userId}`}>
+            <img onClick={() => dispatch(actions.setHistory(history.location.search))}
+                src={message.photo ? message.photo : user_small}/>
+        </NavLink>
         <div className={styles.messages__body}>
             <div>
                 {message.userName}

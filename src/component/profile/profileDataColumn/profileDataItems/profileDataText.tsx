@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { profileType } from "../../../../types/types";
 import cls from './profileData.module.css';
+import { v1, v4 } from 'uuid'
+
 
 type propsType = {
     profile: profileType
@@ -15,7 +17,7 @@ const ProfileDataText: React.FC<propsType> = ({profile, setEditMode, showContact
     let finalContactsMap = []
     for(let i=0; i <= profileContactKeys.length; i++){
         finalContactsMap.push(
-            <div className={cls.contact__container}>
+            <div key={v4()} className={cls.contact__container}>
                 <div className={cls.contact__key}>{Object.keys(profile.contacts)[i]}</div>
                 <div className={cls.contact__value}>{Object.values(profile.contacts)[i]}</div>
             </div>
@@ -37,7 +39,6 @@ const ProfileDataText: React.FC<propsType> = ({profile, setEditMode, showContact
                 {finalContactsMap.map(item => item)}
             </div>
             {isOwner ? <button onClick={() => setEditMode(true)}>EditText</button> : false}
-            {/* Здесь важно писать setEditMode мод внутри коллбека */}
         </div>
     )
 }

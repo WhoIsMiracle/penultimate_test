@@ -63,3 +63,19 @@
     background: #e9edf3e9;
     border-radius: 15px;
 }
+.profile__writeMessage{
+    border: none;
+    padding: 8px 0px;
+    margin: 10px 10px;
+    background: #e9edf3e9;
+    border-radius: 10px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    width: 92.5%;
+}
+.profile__writeMessage span{
+    color: black;
+    border-bottom: none;
+}
