@@ -9,7 +9,7 @@ type propsType = {
     login: string | null
 }
 
-const Header: React.FC<propsType> = ({ login, ...props }) => {
+const Header: React.FC<propsType> = ({ login }) => {
     const dispatch = useDispatch()
     return(
         <header className={cls.header}>

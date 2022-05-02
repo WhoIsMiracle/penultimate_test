@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import cls from './users.module.css';
+import cls from './users.module.scss';
 
 type paginatorProps = {
     totalCount: number

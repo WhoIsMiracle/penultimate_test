@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import cls from './App.module.css';
+import cls from './App.module.scss';
 import ProfileContainer from './component/profile/profile';
 import Header from './component/header/header';
 import NavBar from './component/navBar/navBar';

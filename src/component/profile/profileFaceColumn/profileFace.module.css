@@ -79,3 +79,6 @@
     color: black;
     border-bottom: none;
 }
+.profile__face a{
+    text-decoration-color: black;
+}

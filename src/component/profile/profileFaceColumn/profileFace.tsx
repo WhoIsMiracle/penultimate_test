@@ -43,9 +43,11 @@ const ProfileFace: React.FC<propsType> = ({profile, isOwner}) => {
         </div>}
         {isOwner 
             ? false
-            : <NavLink to={`/Dialogs?id=${profile.userId}`}>
-                <div className={styles.profile__writeMessage}><span>Write message</span></div>
-            </NavLink>
+            : <div id={styles.profile__navLink}>
+                <NavLink to={`/Dialogs?id=${profile.userId}`}>
+                    <div className={styles.profile__writeMessage}><span>Write message</span></div>
+                </NavLink>
+            </div>
         }
         <input className={showButtonUpdate ? styles.photo__inputShow : styles.photo__inputHidden}
             onChange={savePhoto} type='file'/>

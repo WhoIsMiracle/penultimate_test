@@ -39,6 +39,7 @@ type dataLogin = {
 const Login: React.FC = () => {
     let dispatch = useDispatch()
     const LogIn = (data: dataLogin) => {
+        //@ts-ignore
         dispatch(loginTC(data.login, data.password, data.rememberMe))
     }
     return (

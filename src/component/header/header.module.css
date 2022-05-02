@@ -1,8 +1,11 @@
 .header{
     background: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
+    /* border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px; */
+    position: sticky;
+    top: 0;
+    z-index: 50;
     text-shadow: -2px 3px 3px white;
     display: flex;
     justify-content: space-between;
@@ -12,13 +15,13 @@
     height: 60px;
     width: 60px;
     border-radius: 50%;
-    padding: 0px 0px 0px 283px;
+    padding: 0px 0px 0px 231px;
 }
 .login{
     display: flex;
     align-items: center;
     font-size: 1.4em;
-    padding: 0px 291px 0px 0px;
+    padding: 0px 241px 0px 0px;
 }
 .login button{
     margin: 0px 0px 0px 50px;

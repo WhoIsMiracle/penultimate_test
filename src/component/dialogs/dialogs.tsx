@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { getMessagesTC, sendMessagesTC } from "../../redux/dialogs-reducer";
 import { getAuthIdSelector, getDialogsMessagesSelector, getLoadReadySelector, getProfileReadySelector, getProfileSelector } from "../../redux/selectors";
-import styles from  './dialogs.module.css'
+import styles from  './dialogs.module.scss'
 import * as queryString from 'querystring';
 import { getProfileTC } from "../../redux/profile-reducer";
 import Loader from "../../general/loader/loader";
@@ -19,6 +19,11 @@ let telegrammButton = <svg width="24" height="24" viewBox="0 0 24 24" xmlns="htt
         </g>
     </svg>
 
+// @ts-ignore
+let listenInterval
+function startListeningMessages(myFunc: any){
+        listenInterval = setInterval(myFunc, 5000)
+}
 
 const Dialogs: React.FC = React.memo(() => {
     let messages = useSelector(getDialogsMessagesSelector)
@@ -89,21 +94,37 @@ const Dialogs: React.FC = React.memo(() => {
             isAutoScroll && setIsAutoScroll(false)
         }
     }
-
-    if(!profile && !myTextareaRef){
-        return <Loader/>
-    }
+    let [listeningNow, setListeningNow] = useState(false)
     if(!profile){
         return <Loader/>
     }
     return(
         <div className={styles.dialogs}>
             <div className={styles.dialogs__header}>
-                <div  className={styles.dialogs__headerName}>
-                    {profile ? profile.fullName : false}
+                <div className={styles.dialogs__headerName}>
+                    <NavLink id={styles.dialogs__name} to={`/Profile?id=${profile.userId}`}>
+                        {profile ? profile.fullName : false}  
+                    </NavLink>
+                </div>
+                <div>
+                    <button disabled={listeningNow} onClick={() => {
+                        startListeningMessages(() => dispatch(getMessagesTC(profile.userId)))
+                        setListeningNow(true)
+                        }}>
+                        <span>StartReceivingMessages</span>
+                    </button>
+                    <button disabled={!listeningNow} onClick={() => {
+                        {/* @ts-ignore */}
+                        clearInterval(listenInterval)
+                        setListeningNow(false)
+                        }}>
+                        <span>StopReceivingMessages</span>
+                    </button>
                 </div>
                 <div className={styles.dialogs__headerAvatar}>
-                    <img src={profile ? profile.photos.small : user_small} alt='photoProfile'/>
+                    <NavLink to={`/Profile?id=${profile.userId}`}>
+                        <img src={profile.photos.small ? profile.photos.small : user_small}/>
+                    </NavLink>
                 </div>
             </div>
             {messages.length === 0

@@ -1,5 +1,6 @@
 import { appInferType } from './store';
 import { authAPI } from "../DAL/authAPI";
+import { Redirect } from 'react-router-dom';
 
 
 let initialState = {
@@ -29,6 +30,7 @@ export const getAuthDataTC = () => async (dispatch: any) => {
         if(response.data.resultCode === 0){
             let {id, email, login} = response.data.data;
             dispatch(actions.me(id, email, login, true))
+
         }else{
             return 'you are not authorized or it is some error'}}
 
@@ -40,7 +42,7 @@ export const loginTC = (email: string,
         if(response.data.resultCode === 0){
             dispatch(getAuthDataTC())
             return new Promise((resolve, reject) => {
-                resolve('/profile')
+                resolve('/Profile')
             })
         } console.error('some error')}
 
