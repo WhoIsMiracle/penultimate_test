@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getUsersSelector } from "../../../../redux/selectors"
 import { getUsersTC } from "../../../../redux/users-reducer"
-import cls from './profileFriend.module.css'
+import cls from './profileFriend.module.scss'
 import user_small from '../../../../user_small.jpg'
 import { userType } from "../../../../types/types"
 import { v1 } from "uuid"
@@ -26,7 +26,7 @@ const ProfileFriends: React.FC = () => {
         </div>
     })
     return(
-        <div className={cls.profile__friends}>
+        <div className={cls.friends}>
             <div className={cls.friends__header}>
                 <span>Friends {friends.length === 9 ? friends.length : null}</span>
             </div>

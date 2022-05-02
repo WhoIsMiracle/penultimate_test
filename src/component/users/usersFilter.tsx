@@ -2,14 +2,13 @@ import { Field, Form, Formik } from "formik"
 import cls from './users.module.scss'
 import { filterType, getUsersTC } from "../../redux/users-reducer"
 import { useDispatch, useSelector } from "react-redux"
-import { getCurrentPageSelector, getFilterSelector, getPageSizeSelector } from "../../redux/selectors"
+import { getFilterSelector, getPageSizeSelector } from "../../redux/selectors"
 
 
 
 
 const UsersFilter: React.FC = () => {
     let filter = useSelector(getFilterSelector)
-    let currentPage = useSelector(getCurrentPageSelector)
     let pageSize = useSelector(getPageSizeSelector)
     let dispatch = useDispatch()
     return <div className={cls.users__filter}>

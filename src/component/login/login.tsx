@@ -4,7 +4,7 @@ import { Field, InjectedFormProps, reduxForm } from "redux-form";
 import { Input } from "../../general/formsControl/forms-control";
 import { maxLengthVC } from "../../general/validate";
 import { loginTC } from "../../redux/auth-reducer";
-import cls from './login.module.css';
+import cls from './login.module.scss';
 
 const maxLength25 = maxLengthVC(25)
 

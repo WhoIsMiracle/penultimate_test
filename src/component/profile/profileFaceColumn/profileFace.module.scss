@@ -1,0 +1,45 @@
+.profile__face{
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    width: 33%;
+    margin: 0px 0px 0px 0px;
+}
+.profile__faceIMG{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    img{
+        width: 200px;
+        height: 200px;
+        border-radius: 10%;
+        margin: 10px 0px 0px 0px;
+    }
+}
+.photo__inputShow{
+    color: rgb(92, 1, 212);
+    margin: 0px 0px 0px 10px;
+    max-width: 93%;
+}
+.photo__inputHidden{
+    display: none;
+}
+.profile__faceButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 18px 0px;
+    margin: 10px 10px;
+    background: #e9edf3e9;
+    border-radius: 10px;
+    height: 25px;
+    color: black;
+    box-shadow: none;
+    width: 92.5%;
+    font-size: 1em;
+    &:hover{
+        background: #a6b6cde9;
+        font-size: 1.2em;
+        transition-duration: 1s;
+    }
+}

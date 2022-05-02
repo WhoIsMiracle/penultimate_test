@@ -2,7 +2,7 @@ import { Formik, Form, Field } from "formik"
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { getPostsProfileSelector } from "../../../../../redux/selectors"
-import styles from './profileDataPosts.module.css'
+import styles from './profileDataPosts.module.scss'
 import { actions } from "../../../../../redux/profile-reducer"
 
 const ProfileDataPosts: React.FC = () => {

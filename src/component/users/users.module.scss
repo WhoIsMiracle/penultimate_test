@@ -40,6 +40,7 @@
         &__following{
             display: flex;
             justify-content: center;
+            align-items: center;
             margin-top: 30px;
         }
     }
@@ -75,8 +76,6 @@
         }
     }
 }
-
-
 .users__filterWrap{
     display: flex;
     justify-content: space-between;
@@ -116,4 +115,10 @@
 }
 .users__searchButton{
     margin: 0px 0px 0px 10px;
+}
+
+.user__writeButton{
+    margin-left: 15px;
+    background: rgb(0, 172, 100);
+    color: white;
 }

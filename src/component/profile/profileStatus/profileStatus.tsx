@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import styles from './profileStatus.module.css'
+import styles from './profileStatus.module.scss'
 import { getProfileStatusTC, updateProfileStatusTC } from "../../../redux/profile-reducer"
 import { getStatusProfileSelector } from "../../../redux/selectors"
 

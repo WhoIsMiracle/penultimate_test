@@ -44,11 +44,11 @@
     border-radius: 10px;
     height: 30px;
     margin: 0px 0px 8px 0px;
-}
-.show__contacts:hover{
-    background: #dbe6f4e9;
-    transition: 0.8s;
-    font-size: 1.1em;
+    &:hover{
+        background: #dbe6f4e9;
+        transition: 0.8s;
+        font-size: 1.1em;
+    }
 }
 .contact__formsHidden{
     display: none;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink, useHistory } from "react-router-dom";
 import { getAppHistorySelector, getAuthIdSelector } from "../../redux/selectors";
-import cls from './navBar.module.css';
+import cls from './navBar.module.scss';
 import * as queryString from 'querystring';
 
 const NavBar: React.FC = () => {

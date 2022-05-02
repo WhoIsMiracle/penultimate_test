@@ -6,6 +6,7 @@ import user_small from '../../user_small.jpg';
 import { NavLink, useHistory } from "react-router-dom";
 import { actions as actionsProfile } from "../../redux/profile-reducer";
 import { actions as appActions } from "../../redux/app-reducer";
+import { WriteMessage } from "../commons/buttons";
 
 
 const User: React.FC<any> = ({user, index}) => {
@@ -31,6 +32,7 @@ const User: React.FC<any> = ({user, index}) => {
                             ? <button onClick={() => dispatch(unfollowTC(user.id))}>Unfollow</button>
                             : <button onClick={() => dispatch(followTC(user.id))}>Follow</button>
                         }
+                        <WriteMessage className={cls.user__writeButton} userId={user.id}/>
                     </div>
                 </div>
             </div>

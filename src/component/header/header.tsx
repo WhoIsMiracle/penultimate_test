@@ -1,5 +1,5 @@
 import React from "react";
-import cls from './header.module.css';
+import cls from './header.module.scss';
 import logo from '../../logo.svg';
 import { connect, useDispatch } from "react-redux";
 import { logoutTC } from "../../redux/auth-reducer";

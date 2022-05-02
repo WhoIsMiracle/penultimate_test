@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { profileType } from "../../../../types/types";
-import cls from './profileData.module.css';
+import cls from './profileData.module.scss';
 import { v1, v4 } from 'uuid'
 
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styles from './profile.module.css'; 
+import styles from './profile.module.scss'; 
 import { ComponentWithAuthRedirectHoc } from "../../general/hocs";
 import { getProfileTC} from '../../redux/profile-reducer';
 import { useDispatch, useSelector } from "react-redux";

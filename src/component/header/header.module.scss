@@ -9,25 +9,25 @@
     text-shadow: -2px 3px 3px white;
     display: flex;
     justify-content: space-between;
-    box-shadow: 5px 5px 2px rgb(34 60 80 / 20%);
-}
-.header img{
-    height: 60px;
-    width: 60px;
-    border-radius: 50%;
-    padding: 0px 0px 0px 231px;
+    box-shadow: 5px 5px 2px rgba(29, 55, 74, 0.2);
+    img{
+        height: 60px;
+        width: 60px;
+        border-radius: 50%;
+        padding: 0px 0px 0px 231px;
+    }
 }
 .login{
     display: flex;
     align-items: center;
     font-size: 1.4em;
     padding: 0px 241px 0px 0px;
-}
-.login button{
-    margin: 0px 0px 0px 50px;
-    padding: 0px 15px;
-    height: 33px;
-}
-.login span{
-    padding-right: 50px;
+    button{
+        margin: 0px 0px 0px 50px;
+        padding: 0px 15px;
+        height: 33px;
+    }
+    span{
+        padding-right: 50px;
+    }
 }

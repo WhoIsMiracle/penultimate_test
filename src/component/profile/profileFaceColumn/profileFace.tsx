@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from "react-redux"
 import { getIsFollowedSelector } from "../../../redux/selectors"
 import { profileType } from "../../../types/types"
 import ProfileFriends from "./profileFriends/profileFriends"
-import styles from './profileFace.module.css'
+import styles from './profileFace.module.scss'
 import user_main from '../../../user_main.jpg';
 import { followTC, unfollowTC } from "../../../redux/users-reducer";
 import { updatePhotoProfileTC } from "../../../redux/profile-reducer"
-import { NavLink } from "react-router-dom"
+import { ProfileFaceButton, WriteMessage } from "../../commons/buttons"
 
 type propsType = {
     profile: profileType
@@ -30,24 +30,17 @@ const ProfileFace: React.FC<propsType> = ({profile, isOwner}) => {
         <div className={styles.profile__faceIMG}>
             <img src={profile.photos.large ? profile.photos.large : user_main} alt='profile photo'/>
         </div>
-        {isOwner ? <div onClick={setShowButtonUpdateFunc} className={styles.photo__update}>
-            <div className={styles.photo__updateText}>Update photo</div>
-        </div>
-        : <div className={styles.profile__following}>
-            {isFollowed ? <div className={styles.profile__follow} onClick={() => {
-                dispatch(unfollowTC(profile.userId))
-            }}>Unfollow</div> 
-            : <div className={styles.profile__follow} onClick={() => dispatch(followTC(profile.userId))}>
-                Follow
-            </div>}
-        </div>}
+        {isOwner
+            ? <ProfileFaceButton className={styles.profile__faceButton} callback={setShowButtonUpdateFunc}
+                                innerHTML={'Update photo'}/>
+            : isFollowed 
+                    ? <ProfileFaceButton className={styles.profile__faceButton} innerHTML={'Unfollow'} 
+                                        callback={() => dispatch(unfollowTC(profile.userId))}/>
+                    : <ProfileFaceButton className={styles.profile__faceButton} innerHTML={'Follow'} 
+                                        callback={() => dispatch(followTC(profile.userId))}/>}
         {isOwner 
             ? false
-            : <div id={styles.profile__navLink}>
-                <NavLink to={`/Dialogs?id=${profile.userId}`}>
-                    <div className={styles.profile__writeMessage}><span>Write message</span></div>
-                </NavLink>
-            </div>
+            : <WriteMessage className={styles.profile__faceButton} userId={profile.userId}/>
         }
         <input className={showButtonUpdate ? styles.photo__inputShow : styles.photo__inputHidden}
             onChange={savePhoto} type='file'/>

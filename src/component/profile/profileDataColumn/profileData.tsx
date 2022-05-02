@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { profileType } from "../../../types/types"
-import styles from './profileData.module.css'
+import styles from './profileData.module.scss'
 import ProfileStatus from "../profileStatus/profileStatus";
 import ProfileDataForms from "./profileDataItems/profileDataForms";
 import ProfileDataText from "./profileDataItems/profileDataText";

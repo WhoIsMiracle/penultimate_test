@@ -1,0 +1,26 @@
+.friends{
+    padding: 0px 10px 10px 10px;
+    margin-top: 14%;
+    &__header{
+        padding: 0px 0px 0px 8px;
+    }
+    &__body{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 10px 0px 0px 0px;
+    }
+    &__item{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 85px;
+        width: 70px;
+        img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    }
+}

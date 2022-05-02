@@ -1,5 +1,5 @@
 import React from "react";
-import cls from './profileData.module.css';
+import cls from './profileData.module.scss';
 import { Formik, Field, Form } from "formik";
 import { updateProfileDataTC } from "../../../../redux/profile-reducer"; 
 import { useDispatch, useSelector } from "react-redux";
