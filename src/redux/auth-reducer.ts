@@ -1,6 +1,5 @@
 import { appInferType } from './store';
 import { authAPI } from "../DAL/authAPI";
-import { Redirect } from 'react-router-dom';
 
 
 let initialState = {

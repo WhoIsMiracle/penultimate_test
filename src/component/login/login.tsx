@@ -1,9 +1,11 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
 import { Field, InjectedFormProps, reduxForm } from "redux-form";
 import { Input } from "../../general/formsControl/forms-control";
 import { maxLengthVC } from "../../general/validate";
 import { loginTC } from "../../redux/auth-reducer";
+import { getIsAuthSelectors } from "../../redux/selectors";
 import cls from './login.module.scss';
 
 const maxLength25 = maxLengthVC(25)
@@ -38,6 +40,10 @@ type dataLogin = {
 
 const Login: React.FC = () => {
     let dispatch = useDispatch()
+    let isAuth = useSelector(getIsAuthSelectors)
+    if(isAuth){
+        return <Redirect to='/Profile'/>
+    }
     const LogIn = (data: dataLogin) => {
         //@ts-ignore
         dispatch(loginTC(data.login, data.password, data.rememberMe))
