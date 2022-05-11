@@ -47,6 +47,17 @@ const Messages: React.FC<propsType> = React.memo(({owner, message, selectedMessa
         e.preventDefault()
         setSelectingMode(true)
     }
+    const returnTime = (time: any) => {
+        let hourSimbol = Number(time[1]) + 3
+        let correctedTimeFiveSymbol = time[0] + hourSimbol + time.substr(2)
+        let correctedTimeSixSymbol = hourSimbol + time.substr(2)
+        console.log(time)
+        if(time.length === 5){
+            return correctedTimeFiveSymbol
+        }else{
+            return correctedTimeSixSymbol
+        }
+    }
     return(
         <div className={owner ? styles.messages__myWrap : styles.messages__friendWrap}
                 onContextMenu={ActiveSelectMode}
@@ -66,7 +77,9 @@ const Messages: React.FC<propsType> = React.memo(({owner, message, selectedMessa
                     {message.body}
                 </div>
                 <span className={styles.messages__time }>
-                    {message.addedAt.substr(11, 5)}
+                    {
+                        returnTime(message.addedAt.substr(11, 5))
+                    }
                 </span>
                 {message.viewed 
                     ? <span className={styles.viewed}>{'✔'}</span> 

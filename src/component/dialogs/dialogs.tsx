@@ -11,6 +11,7 @@ import DialogsHeader from "./dialogsHeader";
 import DialogsMessagesZero from "./dialogsMessages/dialogsMessagesZero";
 import DialogsMessagesBody from "./dialogsMessages/dialogsMessagesBody";
 import DialogsInput from "./dialogsInput";
+import { ComponentWithAuthRedirectHoc } from "../../general/hocs";
 
 
 const Dialogs: React.FC = React.memo(() => {
@@ -47,4 +48,4 @@ const Dialogs: React.FC = React.memo(() => {
     )
 })
 
-export default Dialogs
+export default ComponentWithAuthRedirectHoc(Dialogs)
